@@ -8,22 +8,30 @@ class Area():
         self.name = area_name
         self.description = None
         self.linked_areas = {}
+        self.characters = []
+        self.items = []
 
-    # Set the description of the area
+    # Set/Get the description of the area
     def set_description(self, area_description):
         self.description = tr.fill(area_description, width=80)
 
-    # Get the description of the area
     def get_description(self):
         return self.description
 
-    # Set the name of the area
+    # Set/Get the name of the area
     def set_name(self, area_name):
         self.name = area_name
 
-    # Get the name of the area
     def get_name(self):
         return self.name
+
+    # Set characters to the area
+    def set_character(self, character_name):
+        self.characters.append(character_name)
+
+    # Set items in the area
+    def set_item(self, item_name):
+        self.item = item_name
 
     # Connect to other areas
     def link_area(self, area_to_link, direction):
@@ -38,7 +46,11 @@ class Area():
         for direction in self.linked_areas:
             area = self.linked_areas[direction]
             print(f"- {area.get_name()} is to the [{direction}]")
-        print("-" * 80)
+
+    def describe_chars(self):
+        print("\nPeople nearby:")
+        for char in self.characters:
+            print(f"- {char}")
 
     def move(self, direction):
         if direction in self.linked_areas:
