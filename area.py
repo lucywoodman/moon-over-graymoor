@@ -31,7 +31,7 @@ class Area():
 
     # Set items in the area
     def set_item(self, item_name):
-        self.item = item_name
+        self.items.append(item_name)
 
     # Connect to other areas
     def link_area(self, area_to_link, direction):
@@ -42,12 +42,16 @@ class Area():
         print(f"{self.name}")
         print("-" * 80)
         print(f"{self.description}\n")
-        print("**List of area items or points of interest will go here**\n")
         for direction in self.linked_areas:
             area = self.linked_areas[direction]
             print(f"- {area.get_name()} is to the [{direction}]")
 
-    def describe_chars(self):
+    def list_items(self):
+        print("\nItems nearby:")
+        for item in self.items:
+            print(f"- {item}")
+
+    def list_chars(self):
         print("\nPeople nearby:")
         for char in self.characters:
             print(f"- {char}")

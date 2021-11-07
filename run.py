@@ -2,6 +2,7 @@ from gameinfo import GameInfo
 from chapter import Chapter
 from area import Area
 from character import Character
+from item import Item
 
 # Create the game title
 mog_game = GameInfo("Moon Over Graymoor")
@@ -18,7 +19,7 @@ town_square.set_description("A light mist drifts from the loamy sky above you. T
 gillys_house = Area("George Gilly's House")
 gillys_house.set_description("The doors and windows hang open, and the curtains shiver in the frigid wind. Snow has begun to creep onto the sills, and over the threshold, into the dark and empty home. As you enter, you find the floorboards in the kitchen have been pried up, and on the table next to them sits a small, artless lockbox.")
 
-# Links areas
+# Link areas
 town_square.link_area(gillys_house, "north")
 gillys_house.link_area(town_square, "south")
 
@@ -26,9 +27,15 @@ gillys_house.link_area(town_square, "south")
 oswald = Character("Oswald the Coroner", "An impatient, very finely dressed man")
 sagh = Character("Sagh Gazara", "The proprietor of the Graymoor Bend inn")
 
-# Links characters to areas
+# Link characters to areas
 town_square.set_character(oswald)
 town_square.set_character(sagh)
+
+# Create items
+lockbox = Item("Lockbox", "Small, artless lockbox")
+
+# Link items to areas
+gillys_house.set_item(lockbox)
 
 # Set game defaults
 current_chapter = chap_one
@@ -45,8 +52,16 @@ def first_chapter():
         # If the current area's description hasn't been seen yet, display it.
         if current_area_seen == False:
             current_area.describe()
-            current_area.describe_chars()
             current_area_seen = True
+
+        # if there are items or characters nearby, list them.
+        if current_area.items and current_area.characters:
+            current_area.list_items()
+            current_area.list_chars()
+        elif current_area.items:
+            current_area.list_items()
+        elif current_area.characters:
+            current_area.list_chars()
         
         print("-" * 80)
         command = input("What would you like to do?\n> ")
