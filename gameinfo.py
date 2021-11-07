@@ -7,3 +7,6 @@ class GameInfo():
         print("-----------------------------")
         print(f"Welcome to {self.title}")
         print("-----------------------------")
+
+    def backstory(self):
+        print("**Scene setting will go here**\n")
