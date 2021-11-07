@@ -8,9 +8,8 @@ mog_game = GameInfo("Moon Over Graymoor")
 mog_game.welcome()
 mog_game.backstory()
 
-# Create the chapter title
+# Create the chapter titles
 chap_one = Chapter("one")
-chap_one.title()
 
 # Create the areas
 town_square = Area("The Town Square")
@@ -23,24 +22,41 @@ gillys_house.set_description("The doors and windows hang open, and the curtains 
 town_square.link_area(gillys_house, "north")
 gillys_house.link_area(town_square, "south")
 
+# Create the characters
+oswald = Character("Oswald the Coroner", "An impatient, very finely dressed man")
+sagh = Character("Sagh Gazara", "The proprietor of the Graymoor Bend inn")
+
+# Links characters to areas
+town_square.set_character(oswald)
+town_square.set_character(sagh)
+
 # Set game defaults
+current_chapter = chap_one
 current_area = town_square
 current_area_seen = False
 alive = True
 
-while alive == True:
-    print("\n")
-    
-    # If the current area's description hasn't been seen yet, display it.
-    if current_area_seen == False:
-        current_area.describe()
-        current_area_seen = True
-    
-    command = input("What would you like to do?\n> ")
+def first_chapter():
+    while alive == True:
+        global current_area
+        global current_area_seen
+        print("\n")
+        
+        # If the current area's description hasn't been seen yet, display it.
+        if current_area_seen == False:
+            current_area.describe()
+            current_area.describe_chars()
+            current_area_seen = True
+        
+        print("-" * 80)
+        command = input("What would you like to do?\n> ")
 
-    # If the command is one of the directions, update the current area.
-    if command in ["north", "south", "east", "west"]:
-        current_area = current_area.move(command)
-        current_area_seen = False
-    else:
-        print("Please type a direction")
+        # If the command is one of the directions, update the current area.
+        if command in ["north", "south", "east", "west"]:
+            current_area = current_area.move(command)
+            current_area_seen = False
+        else:
+            print("Please type a command")
+
+current_chapter.title()
+first_chapter()
