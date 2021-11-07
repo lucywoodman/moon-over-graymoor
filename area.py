@@ -26,6 +26,6 @@ class Area():
 
     # Describe the area in the game
     def describe(self):
-        print(self.name)
-        print("--------------------")
+        print(f"\n{self.name}")
+        print("-" * 80)
         print(f"{self.description}\n")
