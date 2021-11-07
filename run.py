@@ -19,21 +19,26 @@ town_square.set_description("A light mist drifts from the loamy sky above you. T
 gillys_house = Area("George Gilly's House")
 gillys_house.set_description("The doors and windows hang open, and the curtains shiver in the frigid wind. Snow has begun to creep onto the sills, and over the threshold, into the dark and empty home. As you enter, you find the floorboards in the kitchen have been pried up, and on the table next to them sits a small, artless lockbox.")
 
+# Links areas
 town_square.link_area(gillys_house, "north")
 gillys_house.link_area(town_square, "south")
 
+# Set game defaults
 current_area = town_square
 current_area_seen = False
 alive = True
 
 while alive == True:
     print("\n")
+    
+    # If the current area's description hasn't been seen yet, display it.
     if current_area_seen == False:
         current_area.describe()
         current_area_seen = True
     
     command = input("What would you like to do?\n> ")
 
+    # If the command is one of the directions, update the current area.
     if command in ["north", "south", "east", "west"]:
         current_area = current_area.move(command)
         current_area_seen = False
