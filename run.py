@@ -55,12 +55,10 @@ def first_chapter():
             current_area_seen = True
 
         # if there are items or characters nearby, list them.
-        if current_area.items and current_area.characters:
+        if current_area.items:
             current_area.list_items()
-            current_area.list_chars()
-        elif current_area.items:
-            current_area.list_items()
-        elif current_area.characters:
+
+        if current_area.characters:
             current_area.list_chars()
         
         print("-" * 80)
