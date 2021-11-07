@@ -23,15 +23,19 @@ town_square.link_area(gillys_house, "north")
 gillys_house.link_area(town_square, "south")
 
 current_area = town_square
+current_area_seen = False
 alive = True
 
 while alive == True:
     print("\n")
-    current_area.describe()
+    if current_area_seen == False:
+        current_area.describe()
+        current_area_seen = True
     
     command = input("What would you like to do?\n> ")
 
     if command in ["north", "south", "east", "west"]:
         current_area = current_area.move(command)
+        current_area_seen = False
     else:
         print("Please type a direction")
