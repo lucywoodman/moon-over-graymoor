@@ -48,9 +48,9 @@ class Area():
             print(f"- {area.get_name()} is to the [{direction}]")
 
     def list_items(self):
-        print("\nItems nearby:")
-        for item in self.items:
-            print(f"- {item}")
+        item_dict = {k: v for k, v in enumerate(self.items)}
+        for key in item_dict.keys():
+            print(key, '--', item_dict[key] )
 
     def list_chars(self):
         char_dict = {k: v for k, v in enumerate(self.characters)}
