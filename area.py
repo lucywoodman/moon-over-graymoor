@@ -54,7 +54,6 @@ class Area():
 
     def list_chars(self):
         char_dict = {k: v for k, v in enumerate(self.characters)}
-        print("\nPeople to talk to:")
         for key in char_dict.keys():
             print(key, '--', char_dict[key] )
 
@@ -64,3 +63,15 @@ class Area():
         else:
             print("You can't go that way")
             return self
+
+    def check_for_chars(self):
+        if self.characters:
+            print('- There are people to [talk] to nearby')
+        else:
+            print('- (There is nobody nearby)')
+
+    def check_for_items(self):
+        if self.items:
+            print('- There are items to [take] nearby')
+        else:
+            print('- (There are no items nearby)')

@@ -51,22 +51,19 @@ def first_chapter():
         # If the current area's description hasn't been seen yet, display it.
         if current_area_seen == False:
             current_area.describe()
+            current_area.check_for_chars()
+            current_area.check_for_items()
             current_area_seen = True
-
-        # If there are items or characters nearby, list them.
-        if current_area.items:
-            current_area.list_items()
-
-        if current_area.characters:
-            current_area.list_chars()
         
         print('-' * 80)
-        command = input('What would you like to do?\n> ')
+        command = input('What would you like to do?: ')
 
         # If the command is one of the directions, update the current area.
         if command in ['north', 'south', 'east', 'west']:
             current_area = current_area.move(command)
             current_area_seen = False
+        elif command == 'talk':
+            current_area.list_chars()
         else:
             print('Please type a command')
 
