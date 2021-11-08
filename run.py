@@ -73,16 +73,17 @@ def first_chapter():
 def second_chapter():
     print('Second chapter will go here')
 
+# https://computinglearner.com/how-to-create-a-menu-for-a-python-console-application/
 menu_options = {
     1: 'Chapter One',
     2: 'Chapter Two',
+    3: 'Exit'
 }
 
 def print_menu():
     for key in menu_options.keys():
         print (key, '--', menu_options[key] )
 
-# https://computinglearner.com/how-to-create-a-menu-for-a-python-console-application/
 if __name__=='__main__':
     while(True):
         print_menu()
@@ -98,5 +99,8 @@ if __name__=='__main__':
             first_chapter()
         elif option == 2:
             second_chapter()
+        elif option == 3:
+            exit()
         else:
             print('Invalid option. Please enter a number between 1 and 4.')
+# End code

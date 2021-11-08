@@ -28,6 +28,7 @@ class Area():
     # Set characters to the area
     def set_character(self, character_name):
         self.characters.append(character_name)
+        print(self.characters)
 
     # Set items in the area
     def set_item(self, item_name):
@@ -52,9 +53,10 @@ class Area():
             print(f"- {item}")
 
     def list_chars(self):
-        print("\nPeople nearby:")
-        for char in self.characters:
-            print(f"- {char}")
+        char_dict = {k: v for k, v in enumerate(self.characters)}
+        print("\nPeople to talk to:")
+        for key in char_dict.keys():
+            print(key, '--', char_dict[key] )
 
     def move(self, direction):
         if direction in self.linked_areas:
