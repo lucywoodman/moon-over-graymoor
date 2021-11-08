@@ -56,7 +56,7 @@ def first_chapter():
             current_area_seen = True
         
         print('-' * 80)
-        command = input('What would you like to do?: ')
+        command = input('What would you like to do: ')
 
         # If the command is one of the directions, update the current area.
         if command in ['north', 'south', 'east', 'west']:
@@ -64,6 +64,10 @@ def first_chapter():
             current_area_seen = False
         elif command == 'talk':
             current_area.list_chars()
+            print('-' * 80)
+            new_command = input('Who would you like to talk to: ')
+            if new_command in range(0, 3):
+                current_area.talk(new_command)
         else:
             print('Please type a command')
 
@@ -99,5 +103,5 @@ if __name__=='__main__':
         elif option == 3:
             exit()
         else:
-            print('Invalid option. Please enter a number between 1 and 4.')
+            print('Invalid option. Please enter a number between 1 and 3.')
 # End code
