@@ -82,6 +82,7 @@ def print_menu():
     for key in menu_options.keys():
         print (key, '--', menu_options[key] )
 
+# https://computinglearner.com/how-to-create-a-menu-for-a-python-console-application/
 if __name__=='__main__':
     while(True):
         print_menu()
