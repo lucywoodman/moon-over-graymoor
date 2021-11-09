@@ -85,6 +85,8 @@ def first_chapter():
                 elif new_command == 9:
                     talking = False
                     current_area_seen = False
+                else:
+                    print('Invalid option. Please enter an available number.')
         else:
             print('Please type a command')
 
@@ -120,5 +122,5 @@ if __name__=='__main__':
         elif option == 3:
             exit()
         else:
-            print('Invalid option. Please enter a number between 1 and 3.')
+            print('Invalid option. Please enter an available number.')
 # End code
