@@ -72,7 +72,7 @@ def first_chapter():
             while talking is True:
                 character_list = current_area.list_chars()
                 # Print the list of nearby characters
-                print("\n")
+                print("\nPeople nearby:")
                 for key in character_list:
                     print(key, '--', character_list[key] )
                 print('9 -- Go back')
@@ -90,7 +90,7 @@ def first_chapter():
                 else:
                     print('Invalid option. Please enter an available number.')
         else:
-            print('Please type a command.')
+            print('Please enter a valid command. E.g. talk')
 
 def second_chapter():
     print('Second chapter will go here')
@@ -117,7 +117,7 @@ if __name__=='__main__':
         try:
             option = int(input('Enter your choice: '))
         except:
-            print('Wrong input. Please enter a number ...')
+            print('Wrong input. Please enter a number...')
         #Check what choice was entered and act accordingly
         if option == 1:
             current_chapter = chap_one
