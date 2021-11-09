@@ -27,6 +27,10 @@ gillys_house.link_area(town_square, 'south')
 oswald = Character('Oswald the Coroner', 'An impatient, very finely dressed man')
 sagh = Character('Sagh Gazara', 'The proprietor of the Graymoor Bend inn')
 
+# Set the characters dialogue
+oswald.set_dialogue('Testing, testing, 1, 2, 3...')
+sagh.set_dialogue('Also, testing, testing, 1, 2, 3...')
+
 # Link characters to areas
 town_square.set_character(oswald)
 town_square.set_character(sagh)
@@ -74,7 +78,8 @@ def first_chapter():
             # Return selected character class
             if new_command in character_list:
                 char_to_talk = character_list.get(new_command)
-                print(char_to_talk)
+                char_to_talk.talk()
+
         else:
             print('Please type a command')
 
