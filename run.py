@@ -97,7 +97,7 @@ def second_chapter():
 menu_options = {
     1: 'Chapter One',
     2: 'Chapter Two',
-    3: 'Exit'
+    9: 'Exit'
 }
 
 def print_menu():
@@ -119,7 +119,7 @@ if __name__=='__main__':
             first_chapter()
         elif option == 2:
             second_chapter()
-        elif option == 3:
+        elif option == 9:
             exit()
         else:
             print('Invalid option. Please enter an available number.')
