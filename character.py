@@ -17,6 +17,6 @@ class Character():
     # Talk to the character
     def talk(self):
         if self.dialogue is not None:
-            print(f'{self.name} says: {self.dialogue}')
+            print(f'{self.name} says:\n"{self.dialogue}"')
         else:
             print(self.name + " hasn't got anything to say.")

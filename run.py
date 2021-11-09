@@ -72,6 +72,7 @@ def first_chapter():
             while talking is True:
                 character_list = current_area.list_chars()
                 # Print the list of nearby characters
+                print("\n")
                 for key in character_list:
                     print(key, '--', character_list[key] )
                 print('9 -- Go back')
@@ -81,6 +82,7 @@ def first_chapter():
                 # Return selected character class
                 if new_command in character_list:
                     char_to_talk = character_list.get(new_command)
+                    print("\n")
                     char_to_talk.talk()
                 elif new_command == 9:
                     talking = False
@@ -88,15 +90,19 @@ def first_chapter():
                 else:
                     print('Invalid option. Please enter an available number.')
         else:
-            print('Please type a command')
+            print('Please type a command.')
 
 def second_chapter():
     print('Second chapter will go here')
+
+def third_chapter():
+    print('Third chapter will go here')
 
 # https://computinglearner.com/how-to-create-a-menu-for-a-python-console-application/
 menu_options = {
     1: 'Chapter One',
     2: 'Chapter Two',
+    3: 'Chapter Three',
     9: 'Exit'
 }
 
@@ -119,6 +125,8 @@ if __name__=='__main__':
             first_chapter()
         elif option == 2:
             second_chapter()
+        elif option == 3:
+            third_chapter()
         elif option == 9:
             exit()
         else:
