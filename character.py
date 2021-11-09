@@ -10,10 +10,9 @@ class Character():
     def __repr__(self):
         return f"{self.name}"
 
-    # Describe the character
-    def describe(self):
-        print(f'{self.name} is here')
-        print(self.description)
+    # Set what this character will say when talked to
+    def set_dialogue(self, dialogue):
+        self.dialogue = dialogue
 
     # Talk to the character
     def talk(self):
