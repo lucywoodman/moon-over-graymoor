@@ -28,7 +28,6 @@ class Area():
     # Set characters to the area
     def set_character(self, character_name):
         self.characters.append(character_name)
-        print(self.characters)
 
     # Set items in the area
     def set_item(self, item_name):
