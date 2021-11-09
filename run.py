@@ -68,18 +68,23 @@ def first_chapter():
             current_area_seen = False
         # If the command is "talk", offer the option of nearby characters.
         elif command == 'talk':
-            character_list = current_area.list_chars()
-            # Print the list of nearby characters
-            for key in character_list:
-                print(key, '--', character_list[key] )
-            print('-' * 80)
-            # Ask which character would they like to talk to
-            new_command = int(input('Who would you like to talk to: '))
-            # Return selected character class
-            if new_command in character_list:
-                char_to_talk = character_list.get(new_command)
-                char_to_talk.talk()
-
+            talking = True
+            while talking is True:
+                character_list = current_area.list_chars()
+                # Print the list of nearby characters
+                for key in character_list:
+                    print(key, '--', character_list[key] )
+                print('9 -- Go back')
+                # Ask which character would they like to talk to
+                print('-' * 80)
+                new_command = int(input('Who would you like to talk to: '))
+                # Return selected character class
+                if new_command in character_list:
+                    char_to_talk = character_list.get(new_command)
+                    char_to_talk.talk()
+                elif new_command == 9:
+                    talking = False
+                    current_area_seen = False
         else:
             print('Please type a command')
 
