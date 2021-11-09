@@ -54,8 +54,7 @@ class Area():
 
     def list_chars(self):
         char_dict = {k: v for k, v in enumerate(self.characters)}
-        for key in char_dict.keys():
-            print(key, '--', char_dict[key] )
+        return char_dict
 
     def move(self, direction):
         if direction in self.linked_areas:
