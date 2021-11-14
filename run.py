@@ -3,12 +3,18 @@
 The main file for a command line interface, choose-your-own adventure murder
 mystery story.
 
-Inspired by the Dungeons and Dragons campaign of the same name, the aim is 
-to uncover the murderer and defeat them, returning the town of Graymoor to 
+Inspired by the Dungeons and Dragons campaign of the same name, the aim is
+to uncover the murderer and defeat them, returning the town of Graymoor to
 normality.
 
-Users are able to choose a username and password to save their progress, and 
+Users are able to choose a username and password to save their progress, and
 continue from where they left off. The data is stored in Google Sheets.
+
+gspread: API for Google Sheets
+https://docs.gspread.org/en/latest/
+
+google-auth: Google authentication library
+https://google-auth.readthedocs.io/en/master/
 """
 
 # Third party imports
