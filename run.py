@@ -1,5 +1,26 @@
+"""Main file run.py, for Moon Over Graymoor
+
+The main file for a command line interface, choose-your-own adventure murder
+mystery story.
+
+Inspired by the Dungeons and Dragons campaign of the same name, the aim is 
+to uncover the murderer and defeat them, returning the town of Graymoor to 
+normality.
+
+Users are able to choose a username and password to save their progress, and 
+continue from where they left off. The data is stored in Google Sheets.
+"""
+
+# Third party imports
 import gspread
 from google.oauth2.service_account import Credentials
+
+# Local application imports
+from gameinfo import GameInfo
+from chapter import Chapter
+from area import Area
+from character import Character
+from item import Item
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -11,16 +32,6 @@ CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('moon_over_graymoor')
-
-login = SHEET.worksheet('login')
-data = login.get_all_values()
-print(data)
-
-from gameinfo import GameInfo
-from chapter import Chapter
-from area import Area
-from character import Character
-from item import Item
 
 # Create the game title
 mog_game = GameInfo('Moon Over Graymoor')
